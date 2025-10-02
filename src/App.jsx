@@ -1,7 +1,9 @@
+import Calculator from "./ui/Calculator"
+
 function App() {
   return (
     <div>
-      HELLO, WORLD!!
+      <Calculator  />
     </div>
   )
 }
