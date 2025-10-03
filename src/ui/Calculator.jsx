@@ -3,6 +3,7 @@ import Display from "./Display";
 
 function Calculator() {
   const appendToDisplay = useCalculator((store) => store.appendToDisplay);
+  const clearDisplay = useCalculator((store) => store.clearDisplay);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-950 text-white">
@@ -14,6 +15,14 @@ function Calculator() {
 
         {/* Button Grid */}
         <div className="grid grid-cols-4 gap-0 p-6">
+          {/* Clear Button - Full Width */}
+          <button
+            className="cursor-pointer col-span-4 py-3 border mb-2 border-red-600 bg-gray-900 hover:bg-gray-800 transition-colors rounded-sm"
+            onClick={clearDisplay}
+          >
+            C
+          </button>
+
           {/* Row 1 */}
           <button
             className="cursor-pointer aspect-square border border-gray-700 bg-gray-900 hover:bg-gray-800 transition-colors rounded-sm"
@@ -105,7 +114,7 @@ function Calculator() {
           >
             .
           </button>
-          <button className="cursor-pointer aspect-square border border-gray-700 bg-gray-900 hover:bg-gray-800 transition-colors rounded-sm">
+          <button className="cursor-pointer aspect-square border border-cyan-600 bg-gray-900 hover:bg-gray-800 transition-colors rounded-sm">
             {" "}
             ={" "}
           </button>

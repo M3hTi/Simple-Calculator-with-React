@@ -13,6 +13,15 @@ const useCalculator = create((set) => {
         };
       });
     },
+
+    clearDisplay: () => {
+      set((state) => {
+        return {
+          ...state,
+          display: "",
+        };
+      });
+    },
   };
 });
 
