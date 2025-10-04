@@ -1,8 +1,11 @@
 import useCalculator from "../store";
+import { useDark } from "./Toggle";
 
 function Display() {
   const display = useCalculator((store) => store.display);
   const result = useCalculator((store) => store.result);
+
+  const { isDark } = useDark();
 
   console.log(
     "%c📝 LOG: my Display is",
@@ -11,8 +14,12 @@ function Display() {
   );
 
   return (
-    <div className="text-white text-4xl font-light text-center">
-      {display || result }
+    <div
+      className={`${
+        isDark ? "text-white" : "text-gray-900"
+      } text-4xl font-light text-center`}
+    >
+      {display || result}
     </div>
   );
 }
