@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { calculate, calculateParser } from "./utils/utils";
 
 const useCalculator = create((set) => {
   return {
@@ -10,6 +11,7 @@ const useCalculator = create((set) => {
         return {
           ...state,
           display: state.display + value,
+          result : 0
         };
       });
     },
@@ -19,6 +21,19 @@ const useCalculator = create((set) => {
         return {
           ...state,
           display: "",
+        };
+      });
+    },
+
+    calculate: () => {
+      set((state) => {
+        const tokens = state.display.split("");
+        const element = calculateParser(tokens);
+        const sum = calculate(element);
+        return {
+          ...state,
+          display : "",
+          result: sum,
         };
       });
     },

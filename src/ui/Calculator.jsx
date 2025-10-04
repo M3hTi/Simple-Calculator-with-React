@@ -4,6 +4,7 @@ import Display from "./Display";
 function Calculator() {
   const appendToDisplay = useCalculator((store) => store.appendToDisplay);
   const clearDisplay = useCalculator((store) => store.clearDisplay);
+  const calculate = useCalculator((store) => store.calculate);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-950 text-white">
@@ -114,7 +115,10 @@ function Calculator() {
           >
             .
           </button>
-          <button className="cursor-pointer aspect-square border border-cyan-600 bg-gray-900 hover:bg-gray-800 transition-colors rounded-sm">
+          <button
+            className="cursor-pointer aspect-square border border-cyan-600 bg-gray-900 hover:bg-gray-800 transition-colors rounded-sm"
+            onClick={calculate}
+          >
             {" "}
             ={" "}
           </button>
