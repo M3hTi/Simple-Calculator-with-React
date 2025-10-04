@@ -11,7 +11,7 @@ const useCalculator = create((set) => {
         return {
           ...state,
           display: state.display + value,
-          result : 0
+          result: 0,
         };
       });
     },
@@ -21,6 +21,7 @@ const useCalculator = create((set) => {
         return {
           ...state,
           display: "",
+          result: 0,
         };
       });
     },
@@ -32,7 +33,7 @@ const useCalculator = create((set) => {
         const sum = calculate(element);
         return {
           ...state,
-          display : "",
+          display: "",
           result: sum,
         };
       });
