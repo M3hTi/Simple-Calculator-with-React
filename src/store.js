@@ -28,7 +28,12 @@ const useCalculator = create((set) => {
 
     calculate: () => {
       set((state) => {
-        const tokens = state.display.split("");
+        const tokens = state.display.split(/([+\-x%])/).filter(token => token !== '');
+        console.log(
+          "%c🔍 DEBUG: my tokens are:",
+          "color: #8B5CF6; font-weight: bold",
+          tokens
+        );
         const element = calculateParser(tokens);
         const sum = calculate(element);
         return {
